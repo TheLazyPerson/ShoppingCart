@@ -17,7 +17,8 @@ import javax.servlet.http.HttpSession;
 //@WebServlet("/AuthenticationServlet")
 public class AuthenticationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
+	Map<String, String> loginData = new HashMap<>(); 
+		
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -37,13 +38,15 @@ public class AuthenticationServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Map<String, String> loginData = new HashMap<>(); 
-		loginData.put("trial@bitwiseglobal.com", "1234");
-		loginData.put("harsh@bitwiseglobal.com", "1234");
-		loginData.put("pooja@bitwiseglobal.com", "1234");
-		loginData.put("taher@bitwiseglobal.com", "1234");
-		loginData.put("om@bitwiseglobal.com", "1234");
-		loginData.put("akanksha@bitwiseglobal.com", "1234");
+		if (loginData.isEmpty()) {
+			loginData.put("trial@bitwiseglobal.com", "1234");
+			loginData.put("harsh@bitwiseglobal.com", "1234");
+			loginData.put("pooja@bitwiseglobal.com", "1234");
+			loginData.put("taher@bitwiseglobal.com", "1234");
+			loginData.put("om@bitwiseglobal.com", "1234");
+			loginData.put("akanksha@bitwiseglobal.com", "1234");
+			
+		}
 		
 		String username = request.getParameter("username");
         String password = request.getParameter("password");
